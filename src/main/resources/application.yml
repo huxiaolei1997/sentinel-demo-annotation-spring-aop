@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: sentinel-annotation-aspectj-example
+server:
+  port: 19966
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
