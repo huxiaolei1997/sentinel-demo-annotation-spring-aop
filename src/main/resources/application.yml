@@ -1,6 +1,17 @@
 spring:
   application:
     name: sentinel-annotation-aspectj-example
+  redis:
+    host: 139.196.140.168
+    port: 6379
+    password: hxl2580
+    database: 0
+    lettuce:
+      pool:
+        max-active: 32
+        max-wait: 300ms
+        max-idle: 16
+        min-idle: 8
 server:
   port: 19966
 management:

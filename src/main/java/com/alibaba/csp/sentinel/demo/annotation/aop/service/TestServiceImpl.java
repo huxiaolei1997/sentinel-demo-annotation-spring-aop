@@ -18,6 +18,8 @@ package com.alibaba.csp.sentinel.demo.annotation.aop.service;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.atomic.AtomicInteger;
@@ -27,6 +29,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 @Service
 public class TestServiceImpl implements TestService {
+
     @Override
     @SentinelResource(value = "test", blockHandler = "handleException", blockHandlerClass = {ExceptionUtil.class})
     public void test() {

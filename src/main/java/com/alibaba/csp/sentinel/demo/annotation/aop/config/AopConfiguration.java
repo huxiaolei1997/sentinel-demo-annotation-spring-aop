@@ -30,4 +30,7 @@ public class AopConfiguration {
     public SentinelResourceAspect sentinelResourceAspect() {
         return new SentinelResourceAspect();
     }
+
+//    @Bean
+//    public Jedis
 }

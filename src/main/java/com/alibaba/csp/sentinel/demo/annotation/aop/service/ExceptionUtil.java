@@ -17,10 +17,13 @@ package com.alibaba.csp.sentinel.demo.annotation.aop.service;
 
 import com.alibaba.csp.sentinel.slots.block.BlockException;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
  * @author Eric Zhao
  */
 public final class ExceptionUtil {
+    private static final AtomicInteger count = new AtomicInteger(0);
 
     public static void handleException(BlockException ex) {
         // Handler method that handles BlockException when blocked.
@@ -40,6 +43,7 @@ public final class ExceptionUtil {
      * @return
      */
     public static String helloFallback(long s, Throwable e) {
+        System.out.println("count : " + count.incrementAndGet());
         System.out.println("ERROR :" + e.getMessage());
         return "Oops: a exception occured.";
     }
