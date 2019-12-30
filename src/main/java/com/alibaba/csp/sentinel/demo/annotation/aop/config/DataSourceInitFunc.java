@@ -18,12 +18,18 @@ public class DataSourceInitFunc implements InitFunc {
     @Override
     public void init() {
         final String remoteAddress = "139.196.140.168";
-        final String groupId = "Sentinel:Demo";
-        final String dataId = "com.alibaba.csp.sentinel.demo.flow.rule";
+        final String path = "/Sentinel-Demo/SYSTEM-CODE-DEMO-FLOW";
 
-        ReadableDataSource<String, List<FlowRule>> flowRuleDataSource = new ZookeeperDataSource<>(remoteAddress, groupId, dataId,
-                source -> JSON.parseObject(source, new TypeReference<List<FlowRule>>() {
-                }));
+        ReadableDataSource<String, List<FlowRule>> flowRuleDataSource = new ZookeeperDataSource<>(remoteAddress, path,
+                source -> JSON.parseObject(source, new TypeReference<List<FlowRule>>() {}));
         FlowRuleManager.register2Property(flowRuleDataSource.getProperty());
+//        final String remoteAddress = "139.196.140.168:2181";
+//        final String groupId = "Sentinel:Demo";
+//        final String dataId = "com.alibaba.csp.sentinel.demo.flow.rule";
+//
+//        ReadableDataSource<String, List<FlowRule>> flowRuleDataSource = new ZookeeperDataSource<>(remoteAddress, groupId, dataId,
+//                source -> JSON.parseObject(source, new TypeReference<List<FlowRule>>() {
+//                }));
+//        FlowRuleManager.register2Property(flowRuleDataSource.getProperty());
     }
 }

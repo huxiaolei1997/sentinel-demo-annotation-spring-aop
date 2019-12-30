@@ -36,7 +36,7 @@ public class DemoApplication {
 
     public static void main(String[] args) {
         // 规则可以在sentinel中配置，不需要在这里写死
-         initFlowRules();
+//         initFlowRules();
         SpringApplication.run(DemoApplication.class, args);
     }
 
